@@ -3,7 +3,7 @@
 **Figure 1**  
 *The “Sprint-Delivery” Variant*  
 Aerodynamic, enclosed cargo pod built on a professional racing chassis (OTK / LN Four).
-
+[![Freya](/freya.png)](https://github.com/Orion-Space-Systems-Technologies-Corp)
 ---
 
 ## 1. Executive Summary: The **Goldilocks Thesis**
