@@ -1,205 +1,148 @@
-Project Velocity: High-Performance Autonomous Logistics Platform
+# FREYA: High-Performance Autonomous Logistics Platform
 
-Fig 1: The "Sprint-Delivery" Variant. Aerodynamic, enclosed cargo pod built on a professional Lando Norris (LN) Four racing chassis.
+**Figure 1**  
+*The “Sprint-Delivery” Variant*  
+Aerodynamic, enclosed cargo pod built on a professional racing chassis (OTK / LN Four).
 
-1. Executive Summary: The "Goldilocks" Thesis
+---
 
-The Problem: Current last-mile solutions are fundamentally mismatched to the task.
+## 1. Executive Summary: The **Goldilocks Thesis**
 
-Vans (Tesla/Rivian): Thermodynamic overkill. Moving a 2,000kg vehicle to deliver a 5kg payload is inefficient, dangerous to pedestrians, and causes congestion.
+### The Problem
 
-Drones: Limited payload capacity (cannot carry groceries), noise pollution, and strict airspace regulation.
+Current last-mile delivery systems are structurally mismatched to efficiency, safety, and urban scalability.
 
-The Solution: An autonomous agent engineered for the world we actually live in—a world paved for wheels.
+**Vans (Tesla / Rivian-class EVs)**  
+Moving a ~2,000 kg vehicle to deliver a ~5 kg payload is thermodynamically inefficient, increases pedestrian risk, and contributes to congestion. Even electric vans typically consume **~200–300 Wh per mile** in urban duty cycles.
 
-Form Factor: "Knee-height" electric kart (Side-walk and Bike-lane capable).
+**Existing Ground Delivery Robots (Starship, Serve, Kiwibot, Refraction AI)**  
+Sidewalk-class robots are constrained by low speeds (**~6–10 km/h**), modest payloads (**~5–50 kg**), and limited operational envelopes.
 
-Hardware DNA: Professional racing grade (OTK Group / Tony Kart).
+**Aerial Drones**  
+Drones face strict airspace regulation, noise pollution, weather sensitivity, and low practical payload limits (**<2–5 kg**).
 
-Philosophy: Sprint Delivery. We utilize high-performance hardware for rapid transit and fast turnaround, relying on a Hot-Swap Architecture rather than heavy, long-range batteries.
+### The Solution
 
-2. The Business Case & Unit Economics
+An autonomous ground agent engineered for sidewalks, bike lanes, and low-speed urban corridors.
 
-Our economic advantage lies in the Swarm Multiplier. We are not just replacing a driver; we are changing the ratio of labor to delivery volume.
+**Form Factor**  
+*Knee-height electric kart* capable of sidewalk or bike-lane operation where permitted.
 
-2.1 Unit Economics Comparison
+**Hardware DNA**  
+*Professional racing-grade chassis* adapted for autonomous operation.
 
-Metric
+**Philosophy: Sprint Delivery**  
+High-performance hardware optimized for short runs using **hot-swappable batteries**.
 
-Human Courier (Van/Car)
+---
 
-Project Velocity (Swarm Model)
+## 2. Business Case & Unit Economics
 
-Impact / Delta
+### 2.1 Unit Economics Comparison
 
-Asset Cost (CapEx)
+| Metric | Human Courier (Van / Car) | Project Velocity (Swarm Model) | Impact |
+|------|--------------------------|-------------------------------|--------|
+| **Asset Cost (CapEx)** | ~$45,000 | ~$3,500–$5,000 | ~90% lower |
+| **Labor Cost** | ~$20/hr | ~$0.40/hr | ~98% reduction |
+| **Energy Use** | ~200–300 Wh/mi | ~35–60 Wh/mi | 4–7× gain |
+| **Idle Cost** | High | Zero | Higher margin |
+| **Liability Risk** | High | Low | Lower insurance |
 
-~$45,000 (Van + Upfit)
+### 2.2 Swarm Operational Flow
 
-~$3,500 - $5,000 (Target)
-
-90% Lower CapEx
-
-Labor Cost (Hourly)
-
-~$20.00 / hour (1 Driver)
-
-~$0.40 / hour (1 Operator / 50 Bots)
-
-98% Labor Savings
-
-Energy Efficiency
-
-~250 Wh/mile
-
-~35 Wh/mile
-
-7x More Efficient
-
-Idle Cost
-
-High (Driver paid to wait)
-
-Zero (Robot waits at hub)
-
-Higher Margins
-
-Liability Risk
-
-High (2-ton vehicle)
-
-Low (<50kg vehicle)
-
-Lower Insurance
-
-2.2 The "Swarm" Operational Flow
-
+```mermaid
 graph LR
     A[Logistics Hub] -- Fresh Battery + Cargo --> B(Deployed Kart)
-    B -- 25km/h --> C{Routing Logic}
-    C --> D[Drop 1: Pizza]
-    C --> E[Drop 2: Parcel]
-    C --> F[Drop 3: Medicine]
+    B -- ~25 km/h --> C{Routing Logic}
+    C --> D[Drop 1]
+    C --> E[Drop 2]
+    C --> F[Drop 3]
     D & E & F --> G(Return to Base)
     G -- Depleted Battery --> A
-    style A fill:#f9f,stroke:#333,stroke-width:2px
+```
 
+---
 
-3. Hardware Architecture
+## 3. Hardware Architecture
 
-3.1 Chassis & Propulsion
+### 3.1 Chassis & Propulsion
 
-Base Platform: Lando Norris (LN) Four Chassis (OTK Group).
+**Base Platform:** OTK Group LN Four racing chassis  
+**Motor:** 96V PMAC  
+**Output:** ~20 kW continuous / ~35 kW peak  
+**Drive:** Direct rear axle, single ratio  
+**Brakes:** Hydraulic, drive-by-wire
 
-Modifications: Removal of fuel tank/ICE mounts; addition of sensor/compute rigorous mounting points.
+### 3.2 Sprint Battery Strategy
 
-Motor: 96V PMAC (Permanent Magnet AC).
+- **96 V nominal**
+- **~50 Ah (~4.8 kWh)**
+- **Chemistry:** NMC or LiFePO₄
+- **Hot-swappable** via high-current quick disconnects
 
-Spec: ~20kW Continuous / ~35kW Peak.
+### 3.3 Payload: The **Smart Drawer**
 
-Mount: Direct Rear Axle (Inline) via custom CNC aluminum clamps.
+- Sliding rear drawer
+- Multiple lockable compartments
+- QR-based customer unlock
 
-Transmission: Direct Drive (Single Gear). Optimized for torque/acceleration to handle payload weight (~50kg).
+---
 
-Brakes: Hydraulic rear disc brakes (standard OTK) actuated via linear servo (Drive-by-Wire).
+## 4. Systems & Safety Topology
 
-3.2 The "Sprint" Battery Strategy
+### 4.1 High-Voltage Safety Loop
 
-We deliberately avoid large, heavy endurance batteries to maintain agility and payload capacity. The kart runs 24/7; only the batteries sleep.
-
-Spec: 96V Nominal, ~50Ah (~4.8 kWh).
-
-Chemistry: NMC (High Discharge) or LiFePO4 (Safety focus).
-
-Form Factor: Rectangular/Flat pack, optimized for side-pod or rear mounting.
-
-Integration: Hot-Swappable. The pack connects via quick-release Anderson SB350 connectors.
-
-3.3 Payload: The "Smart Drawer"
-
-The rear cargo bay utilizes a sliding drawer mechanism with internal compartmentalization to enable multi-stop delivery runs.
-
-Mechanism: Rear Slide-Out Drawer.
-
-Capacity: Modular (e.g., 3x Grocery Bags or 1x Large Parcel).
-
-Security: 3x Internal Locking Segments controlled by the Jetson.
-
-UX: Customer scans QR Code on the chassis $\rightarrow$ Specific segment unlocks $\rightarrow$ Customer retrieves goods.
-
-4. Systems & Safety Topology
-
-4.1 High Voltage Safety Loop (The Kill Chain)
-
-Before the vehicle moves, the hardware safety loop must be closed. Software cannot override a broken physical loop.
-
+```mermaid
 flowchart TD
-    A[96V Battery] --> B{Manual E-Stop Rear}
-    B --> C{Manual E-Stop Side}
-    C --> D{Remote Kill Switch}
-    D --> E{BMS Health Check}
-    D --> F{HVIL (Interlock Loop)}
-    E & F -- All Pass --> G[Main Contactor CLOSES]
-    E & F -- Fail --> H[System Open / Safe State]
+    A[96V Battery] --> B[Manual E-Stop Rear]
+    B --> C[Manual E-Stop Side]
+    C --> D[Remote Kill Switch]
+    D --> E[BMS Health Check]
+    D --> F[HV Interlock Loop]
+    E & F -- Pass --> G[Main Contactor Closes]
+    E & F -- Fail --> H[System Safe State]
     G --> I[Motor Controller]
+```
 
+### 4.2 Compute & Sensor Stack
 
-4.2 Compute & Sensor Stack
+- NVIDIA Jetson-class compute
+- 4× cameras (360°)
+- Solid-state LiDAR
+- GNSS/RTK + IMU
+- 5G/LTE
 
-Core Compute: NVIDIA Jetson Thor (or Orin AGX).
+---
 
-Vision: 4x Wide Angle Cameras (360° Perception).
+## 5. Software Roadmap
 
-Depth: Solid State LiDAR (Front) + Stereoscopic Depth Cameras.
+**Phase 1:** Drive-by-wire teleoperation  
+**Phase 2:** Shadow mode data collection  
+**Phase 3:** Geofenced autonomy using ROS 2 + Isaac Sim
 
-Localization: GNSS/RTK Module + IMU.
+---
 
-Comms: 5G/LTE Module + V2X (Vehicle-to-Everything) ready.
+## 6. Manufacturing Workflow
 
-5. Software Roadmap
+1. De-ICE chassis
+2. Install CNC mounts
+3. Integrate motor and drivetrain
+4. Route HV/LV wiring
+5. Install safety interlocks
+6. Mount Smart Drawer
+7. Install aerodynamic shell
+8. Commission system
 
-Phase 1: Drive-by-Wire
+---
 
-Goal: Control the kart via Xbox Controller through the Jetson.
+## 7. Logistics & Balance of System
 
-Stack: Python script translating Joystick inputs $\rightarrow$ CAN Bus frames $\rightarrow$ Motor Controller.
+- Central hub for charging and swaps
+- <2 minute turnaround target
+- Regulatory strategy: PDD classification where available
 
-Phase 2: Shadow Mode
+---
 
-Goal: Data collection and model validation.
+## Feasibility Summary
 
-Action: Human operates the kart remotely. The AI runs in the background, predicting steering angles. We compare AI predictions vs. Human reality to train the model without risk.
-
-Phase 3: Autonomy (RL)
-
-Goal: Full Self-Driving in geofenced zones.
-
-Stack: ROS 2 (Robot Operating System), NVIDIA Isaac Sim for synthetic training.
-
-Policy: End-to-End Reinforcement Learning (Pixels $\rightarrow$ Control) vs. Modular Pipeline.
-
-6. Manufacturing Workflow
-
-De-ICE-ing: Strip Rotax engine, fuel tank, radiator, and exhaust from the LN Chassis.
-
-Structural Mounts: Install CNC Aluminum mounts for Battery Box (Side/Rear) and Compute Unit (Center).
-
-Propulsion: Install PMAC motor and tension the drive chain/belt.
-
-Wiring Harness: Route HV cables (Left Side) and LV Signal cables (Right Side) to prevent interference. Install E-Stops.
-
-Payload Integration: Mount the rear "Smart Drawer" sliding mechanism.
-
-Bodywork: Install the "Silver Pod" aerodynamic shell.
-
-Commissioning: Bench test HV safety loop and CAN bus communication.
-
-7. Logistics & "Balance of System"
-
-The Hub: Central depot for battery charging and payload loading.
-
-Turnaround Time: Target <2 minutes for Battery Swap + Cargo Load.
-
-Regulatory Strategy: Lobbying for "Personal Delivery Device" (PDD) classification to legalize operation on sidewalks and bike lanes.
-
-Note to Engineers: This platform is a hybrid of F1 technology (chassis/battery discharge) and Logistics Reliability (swappable power/rugged perception). Do not compromise performance for utility; we are building the fastest, most efficient delivery robot on earth.
+Project Velocity aligns with demonstrated autonomous delivery robot efficiency while pushing performance beyond current sidewalk-class platforms. Key risks are regulatory approval at higher speeds, perception robustness, and jurisdictional variation.
