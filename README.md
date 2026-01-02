@@ -40,7 +40,7 @@ High-performance hardware optimized for short runs using **hot-swappable batteri
 
 ### 2.1 Unit Economics Comparison
 
-| Metric | Human Courier (Van / Car) | Project Velocity (Swarm Model) | Impact |
+| Metric | Human Courier (Van / Car) | FREYA (Swarm Model) | Impact |
 |------|--------------------------|-------------------------------|--------|
 | **Asset Cost (CapEx)** | ~$45,000 | ~$3,500–$5,000 | ~90% lower |
 | **Labor Cost** | ~$20/hr | ~$0.40/hr | ~98% reduction |
@@ -145,4 +145,4 @@ flowchart TD
 
 ## Feasibility Summary
 
-Project Velocity aligns with demonstrated autonomous delivery robot efficiency while pushing performance beyond current sidewalk-class platforms. Key risks are regulatory approval at higher speeds, perception robustness, and jurisdictional variation.
+Project FREYA aligns with demonstrated autonomous delivery robot efficiency while pushing performance beyond current sidewalk-class platforms. Key risks are regulatory approval at higher speeds, perception robustness, and jurisdictional variation.
